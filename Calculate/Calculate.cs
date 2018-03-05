@@ -24,7 +24,7 @@ namespace Calculate
         {
             if (a == 'v' || a == '^')
                 return 4;
-            if (a == 'i' || a == 'c')
+            if (a == 'i' || a == 'c' || a == 'w' || a == 'z')
                 return 3;
             if (a == '*' || a == '/')
                 return 2;
@@ -76,45 +76,17 @@ namespace Calculate
                     c[dem] = temp;
                     dem++;
                 }
-                if (s[i] == '+' || s[i] == '-' || s[i] == '*' || s[i] == '/' || s[i] == 'v' || s[i] == 'i' || s[i] == 'c' || s[i] == '^')
+                if (s[i] == '+' || s[i] == '-' || s[i] == '*' || s[i] == '/' || s[i] == 'v' || s[i] == 'i' || s[i] == 'c' || s[i] == '^' || s[i] == 'w' || s[i] == 'z')
                 {
                     if (IsEmpty(a) == true)
-                        if (s[i] == 'r')
-                        {
-                            if (s[i + 2] == 's')
-                                a.Push('w');
-                            else
-                                a.Push('z');
-                            i = i + 4;
-                        }
-                        else
-                            a.Push((char)(s[i]));
-                    else
-                        if (prio(s[i]) <= prio((char)(a.Peek())))
+                        a.Push((char)(s[i]));
+                    else if (prio(s[i]) <= prio((char)(a.Peek())))
                     {
                         c[dem] = (char)(a.Pop());
-                        dem++;
-                        if (s[i] == 'r')
-                        {
-                            if (s[i + 2] == 's')
-                                a.Push('w');
-                            else
-                                a.Push('z');
-                            i = i + 4;
-                        }
-                        else
-                            a.Push((char)(s[i]));
+                        dem++; 
+                        a.Push((char)(s[i]));
                     }
-                    else
-                            if (s[i] == 'r')
-                    {
-                        if (s[i + 2] == 's')
-                            a.Push('w');
-                        else
-                            a.Push('z');
-                        i = i + 4;
-                    }
-                    else
+                    else 
                         a.Push((char)(s[i]));
                 }
                 if (s[i] == '(')
@@ -199,20 +171,20 @@ namespace Calculate
                             b.Push(Math.Cos((a / 180) * 3.14));
                             break;
                         }
-                    //A Sin
+                    //Tan
                     case 'w':
                         {
                             double a;
                             a = (double)(b.Pop());
-                            b.Push((Math.Asin(a) / 3.14) * 180);
+                            b.Push(Math.Tan((a / 180) * 3.14));
                             break;
                         }
-                    //A cos
+                    //Cotan
                     case 'z':
                         {
                             double a;
                             a = (double)(b.Pop());
-                            b.Push((Math.Acos(a) / 3.14) * 180);
+                            b.Push(1 / (Math.Tan((a / 180) * 3.14)));
                             break;
                         }
                     //Square root

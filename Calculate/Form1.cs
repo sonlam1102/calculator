@@ -109,12 +109,12 @@ namespace Calculate
 
         private void button20_Click(object sender, EventArgs e)
         {
-            txtInput.Text += "Asin";
+            txtInput.Text += "tan";
         }
 
         private void button21_Click(object sender, EventArgs e)
         {
-            txtInput.Text += "Acos";
+            txtInput.Text += "cot";
         }
 
         private void button22_Click(object sender, EventArgs e)
@@ -127,13 +127,13 @@ namespace Calculate
         {
             String expr = txtInput.Text;
             if (expr.Contains("sin"))
-                expr.Replace("sin", "i");
+                expr = expr.Replace("sin", "i");
             if (expr.Contains("cos"))
-                expr.Replace("cos", "c");
-            if (expr.Contains("Asin"))
-                expr.Replace("Asin", "w");
-            if (expr.Contains("Acos"))
-                expr.Replace("Acos", "z");
+                expr = expr.Replace("cos", "c");
+            if (expr.Contains("tan"))
+                expr = expr.Replace("tan", "w");
+            if (expr.Contains("cot"))
+                expr = expr.Replace("cot", "z");
 
             if (expr != "" && expr != null) {
                 Calculate cal = new Calculate(expr);

@@ -268,7 +268,7 @@
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(49, 23);
             this.button20.TabIndex = 2;
-            this.button20.Text = "Asin";
+            this.button20.Text = "tan";
             this.button20.UseVisualStyleBackColor = true;
             this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
@@ -278,7 +278,7 @@
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(49, 23);
             this.button21.TabIndex = 2;
-            this.button21.Text = "Acos";
+            this.button21.Text = "cot";
             this.button21.UseVisualStyleBackColor = true;
             this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
